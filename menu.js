@@ -17,10 +17,21 @@ function SplitMenu( domId ){
     
     this.menuItems = [];
     
-    this.menuItems[ this.MODE_SINGLE_PAGE ] = new SplitMenuItem( 'Single Page', 'core-sprite-page', this.MODE_SINGLE_PAGE );
-    this.menuItems[ this.MODE_VERTICAL_SPLIT ] = new SplitMenuItem( 'Vertical Split', 'core-sprite-vertical', this.MODE_VERTICAL_SPLIT );
-    this.menuItems[ this.MODE_HORIZONTAL_SPLIT ] = new SplitMenuItem( 'Horizontal Split', 'core-sprite-horizontal', this.MODE_HORIZONTAL_SPLIT );
-    this.menuItems[ this.MODE_PICTURE_IN_PICTURE ] = new SplitMenuItem( 'Picture in Picture', 'core-sprite-pip', this.MODE_PICTURE_IN_PICTURE );
+    this.menuItems[ this.MODE_SINGLE_PAGE ] = new SplitMenuItem( 'Single Page',
+                                                                 'core-sprite-page',
+                                                                 this.MODE_SINGLE_PAGE );
+
+    this.menuItems[ this.MODE_VERTICAL_SPLIT ] = new SplitMenuItem( 'Vertical Split',
+                                                                    'core-sprite-vertical',
+                                                                    this.MODE_VERTICAL_SPLIT );
+
+    this.menuItems[ this.MODE_HORIZONTAL_SPLIT ] = new SplitMenuItem( 'Horizontal Split',
+                                                                      'core-sprite-horizontal',
+                                                                      this.MODE_HORIZONTAL_SPLIT );
+
+    this.menuItems[ this.MODE_PICTURE_IN_PICTURE ] = new SplitMenuItem( 'Picture in Picture',
+                                                                        'core-sprite-pip',
+                                                                        this.MODE_PICTURE_IN_PICTURE );
     
     this.chosenMode =  this.MODE_SINGLE_PAGE;
     
@@ -103,17 +114,20 @@ function switchMode( mode ){
     
     var selection = mode.target.parentNode;
     
-    this.chosenMode = parseInt( selection.id );
+    if( selection.id ){
     
-    while(this.selectionTable.firstChild ){
-        this.selectionTable.removeChild( this.selectionTable.firstChild );
-    }
+        this.chosenMode = parseInt( selection.id );
 
-    this.addMenuItems();
-    
-    this.toggleMenu();
-    
-    this.currentModeElement.className = this.menuItems[ this.chosenMode ].className + " chosen";
+        while(this.selectionTable.firstChild ){
+            this.selectionTable.removeChild( this.selectionTable.firstChild );
+        }
+
+        this.addMenuItems();
+
+        this.toggleMenu();
+
+        this.currentModeElement.className = this.menuItems[ this.chosenMode ].className + " chosen";
+    }
 }
 
 SplitMenu.prototype.switchMode = switchMode;
