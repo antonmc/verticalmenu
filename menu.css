@@ -42,7 +42,12 @@
 .selectionItem{
     display: flex;
     flex-direction: row;
-    align-items: baseline
+    align-items: baseline;
+    padding-top: 2px;
+}
+
+.selectionItem:hover{
+    cursor: pointer;
 }
 
 .state{

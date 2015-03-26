@@ -71,6 +71,10 @@ function createMenuItem( data ){
     item.appendChild( icon );
     item.appendChild( description );
     
+    item.id = data.mode;
+    
+    item.onclick = this.switchMode.bind( this );
+    
     return item;
 }
 
@@ -95,6 +99,24 @@ function toggleMenu(){
 
 SplitMenu.prototype.toggleMenu = toggleMenu;
 
+function switchMode( mode ){
+    
+    var selection = mode.target.parentNode;
+    
+    this.chosenMode = parseInt( selection.id );
+    
+    while(this.selectionTable.firstChild ){
+        this.selectionTable.removeChild( this.selectionTable.firstChild );
+    }
+
+    this.addMenuItems();
+    
+    this.toggleMenu();
+    
+    this.currentModeElement.className = this.menuItems[ this.chosenMode ].className + " chosen";
+}
+
+SplitMenu.prototype.switchMode = switchMode;
 
 function start(){    
     var splitMenu = new SplitMenu( 'splitmenu' );
