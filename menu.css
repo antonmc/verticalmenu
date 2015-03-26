@@ -1,0 +1,96 @@
+.page{
+    background:#FFF;
+    margin: 0;
+    padding:0;
+    font-family:sans-serif;
+    font-size: 12px
+}
+
+.menubar{
+    display:flex;
+    align-items: baseline;
+    background: #333;
+    height: 30px;
+    width:100%;   
+    border:0;
+}
+
+.title{
+    padding:10px;
+    color: white;
+}
+
+.splitMenuBox{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.selectionTable{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #eee;
+    margin: 1px;
+    margin-top:2px;
+    visibility:collapse;
+    padding: 5px;
+}
+
+.selectionItem{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline
+}
+
+.state{
+    height: 16px;
+    width: 16px;
+    margin-right: 5px;
+}
+
+.description{
+    margin-left:5px;
+    color:#777;
+    margin-right: 10px;
+}
+
+.core-sprite-checkmark{
+	font-size: 14px;
+	line-height: normal;
+	vertical-align:middle;
+	color: #777;
+	font-family: 'Orion Icon Font';
+	background: none;
+	border: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.core-sprite-page,
+.core-sprite-horizontal,
+.core-sprite-vertical,
+.core-sprite-pip{
+	font-size: 16px;
+	line-height: normal;
+	vertical-align:middle;
+	color: #777;
+	font-family: 'Orion Icon Font';
+	background: none;
+	border: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.core-sprite-checkmark:before{ content:'\E050'; }
+.core-sprite-page:before{ content:'\E066'; }
+.core-sprite-horizontal:before{ content:'\E042'; }
+.core-sprite-vertical:before{ content:'\E041'; }
+.core-sprite-pip:before{ content:'\E067'; }
+
+.chosen{
+    color: white;   
+/*    margin-top:-5px;*/
+}
