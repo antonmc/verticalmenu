@@ -2,38 +2,43 @@ function SplitMenu( domId ){
     
     /* Modes */
     
-    this.MODE_SINGLE_PAGE = 0;
-    this.MODE_VERTICAL_SPLIT = 1;
-    this.MODE_HORIZONTAL_SPLIT = 2;
-    this.MODE_PICTURE_IN_PICTURE = 3;
+    this.MODE_SINGLE = 0;
+    this.MODE_VERTICAL = 1;
+    this.MODE_HORIZONTAL = 2;
+    this.MODE_PIP = 3;
     
     /* Set up menu items */
     
-    function SplitMenuItem( description, cssClass, mode ){
-        this.description = description;
-        this.className = cssClass;
-        this.mode = mode;
+    function SplitMenuItem( meta ){
+        this.description = meta.description;
+        this.className = meta.className;
+        this.mode = meta.mode;
     }
     
     this.menuItems = [];
     
-    this.menuItems[ this.MODE_SINGLE_PAGE ] = new SplitMenuItem( 'Single Page',
-                                                                 'core-sprite-page',
-                                                                 this.MODE_SINGLE_PAGE );
-
-    this.menuItems[ this.MODE_VERTICAL_SPLIT ] = new SplitMenuItem( 'Vertical Split',
-                                                                    'core-sprite-vertical',
-                                                                    this.MODE_VERTICAL_SPLIT );
-
-    this.menuItems[ this.MODE_HORIZONTAL_SPLIT ] = new SplitMenuItem( 'Horizontal Split',
-                                                                      'core-sprite-horizontal',
-                                                                      this.MODE_HORIZONTAL_SPLIT );
-
-    this.menuItems[ this.MODE_PICTURE_IN_PICTURE ] = new SplitMenuItem( 'Picture in Picture',
-                                                                        'core-sprite-pip',
-                                                                        this.MODE_PICTURE_IN_PICTURE );
+    var single = { description: 'Single Page', 
+                   className: 'core-sprite-page', 
+                   mode: this.MODE_SINGLE };
     
-    this.chosenMode =  this.MODE_SINGLE_PAGE;
+    var vertical = { description: 'Vertical Split', 
+                     className: 'core-sprite-vertical', 
+                     mode: this.MODE_VERTICAL };
+    
+    var horizontal = { description: 'Horizontal Split', 
+                       className: 'core-sprite-horizontal', 
+                       mode: this.MODE_HORIZONTAL };
+    
+    var pip = { description: 'Picture in Picture', 
+                className:'core-sprite-pip', 
+                mode: this.MODE_PIP };
+    
+    this.menuItems[ this.MODE_SINGLE ] = new SplitMenuItem( single );
+    this.menuItems[ this.MODE_VERTICAL ] = new SplitMenuItem( vertical );
+    this.menuItems[ this.MODE_HORIZONTAL ] = new SplitMenuItem( horizontal );
+    this.menuItems[ this.MODE_PIP ] = new SplitMenuItem( pip );
+    
+    this.chosenMode =  this.MODE_SINGLE;
     
     /* Attach menu to anchor */
     
